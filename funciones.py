@@ -17,6 +17,7 @@ def calcular_moda(array):
     if len(array) == 1:
         return [array[0]]
     max = 0
+    array.sort()
     current = 0
     results = []
     for i in range(len(array) - 1):

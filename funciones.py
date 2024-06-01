@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import statistics as stat
+import locale
 
 def calcular_media(array):
     sum = 0
@@ -46,27 +47,33 @@ def calcula_varianza_empirica(array):
 
 def generar_histograma_binomial(array):
     plt.hist(array)
-    plt.ylabel(f"Veces que se obtuvo cada resultado al repetir el experimento {len(array)} veces")
-    plt.xlabel("Resultado de la muestra")
+    locale.setlocale(locale.LC_ALL, '')
+    plt.title(f"Muestra binomial de tamaño {locale.format('%d', len(array), 1)}")
+    plt.ylabel(f"Veces que se obtuvo el resultado")
+    plt.xlabel("Resultados de la muestra")
     plt.tight_layout()
     plt.gcf().set_size_inches(6, 6)
-    plt.savefig(f"histograma_binomial_{len(array)}", dpi=150)
+    plt.savefig(f"histograma_binomial_{len(array)}", dpi=125)
     plt.close()
     
 def generar_histograma_geometrica(array):
     plt.hist(array)
-    plt.ylabel(f"Veces que se obtuvo cada resultado al repetir el experimento {len(array)} veces")
-    plt.xlabel("Resultado de la muestra")
+    locale.setlocale(locale.LC_ALL, '')
+    plt.title(f"Muestra geométrica de tamaño {locale.format('%d', len(array), 1)}")
+    plt.ylabel(f"Veces que se obtuvo el resultado")
+    plt.xlabel("Resultados de la muestra")
     plt.tight_layout()
     plt.gcf().set_size_inches(6, 6)
-    plt.savefig(f"histograma_geometrica_{len(array)}", dpi=150)
+    plt.savefig(f"histograma_geometrica_{len(array)}", dpi=125)
     plt.close()
 
 def generar_histograma_poisson(array):
     plt.hist(array)
-    plt.ylabel(f"Veces que se obtuvo cada resultado al repetir el experimento {len(array)} veces")
-    plt.xlabel("Resultado de la muestra")
+    locale.setlocale(locale.LC_ALL, '')
+    plt.title(f"Muestra de Poisson de tamaño {locale.format('%d', len(array), 1)}")
+    plt.ylabel(f"Veces que se obtuvo el resultado")
+    plt.xlabel("Resultados de la muestra")
     plt.tight_layout()
     plt.gcf().set_size_inches(6, 6)
-    plt.savefig(f"histograma_poisson_{len(array)}", dpi=150)
+    plt.savefig(f"histograma_poisson_{len(array)}", dpi=125)
     plt.close()

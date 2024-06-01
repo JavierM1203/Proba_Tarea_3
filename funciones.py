@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+import statistics as stat
 
 def calcular_media(array):
     sum = 0
@@ -33,3 +35,38 @@ def calcular_moda(array):
         if i + 1 == len(array) - 1 and max == 0:
             results.append(array[i + 1])
     return results
+
+def calcula_varianza_empirica(array):
+    sum = 0
+    media = stat.mean(array)
+    for elem in array:
+        x = (elem - media)**2
+        sum += x
+    return sum / (len(array) - 1)
+
+def generar_histograma_binomial(array):
+    plt.hist(array)
+    plt.ylabel(f"Veces que se obtuvo cada resultado al repetir el experimento {len(array)} veces")
+    plt.xlabel("Resultado de la muestra")
+    plt.tight_layout()
+    plt.gcf().set_size_inches(6, 6)
+    plt.savefig(f"histograma_binomial_{len(array)}", dpi=150)
+    plt.close()
+    
+def generar_histograma_geometrica(array):
+    plt.hist(array)
+    plt.ylabel(f"Veces que se obtuvo cada resultado al repetir el experimento {len(array)} veces")
+    plt.xlabel("Resultado de la muestra")
+    plt.tight_layout()
+    plt.gcf().set_size_inches(6, 6)
+    plt.savefig(f"histograma_geometrica_{len(array)}", dpi=150)
+    plt.close()
+
+def generar_histograma_poisson(array):
+    plt.hist(array)
+    plt.ylabel(f"Veces que se obtuvo cada resultado al repetir el experimento {len(array)} veces")
+    plt.xlabel("Resultado de la muestra")
+    plt.tight_layout()
+    plt.gcf().set_size_inches(6, 6)
+    plt.savefig(f"histograma_poisson_{len(array)}", dpi=150)
+    plt.close()
